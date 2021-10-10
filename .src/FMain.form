@@ -1,0 +1,136 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,80,56)
+  Text = ("Control_Swap")
+  Icon = Picture["icon.png"]
+  Resizable = False
+  { Timer1 #Timer
+    #MoveScaled(52,0)
+    Enabled = True
+    Delay = 500
+  }
+  { TrayIcon1 #TrayIcon
+    #MoveScaled(59,0)
+    Visible = True
+    Picture = Picture["icon.png"]
+  }
+  { TabStrip1 TabStrip
+    MoveScaled(1,9,77,36)
+    Count = 3
+    Index = 0
+    Text = ("Ajuste del uso de la Memoria Virtual (Swap)")
+    { txSwappiness TextBox
+      MoveScaled(12,2,6,3)
+      ToolTip = ("Valor actual en que está seteada la swappiness")
+      Alignment = Align.Center
+    }
+    { Label1 Label
+      MoveScaled(1,2,12,3)
+      Text = ("Swappiness:")
+    }
+    { SbValor SliderBox
+      MoveScaled(8,7,67,4)
+      ToolTip = ("Modifica el valor actual de la swappiness")
+      Value = 10
+    }
+    { Label2 Label
+      MoveScaled(1,7,7,4)
+      Text = ("Ajuste:")
+    }
+    { btAjustar Button
+      MoveScaled(1,13,19,4)
+      ToolTip = ("Ajustar nuevo valor de memoria ")
+      Text = ("Confirmar Valor")
+      Picture = Picture["icon:/22/play"]
+    }
+    { TVSwappiness TextArea
+      MoveScaled(1,20,74,3)
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    Index = 1
+    Text = ("Activado / Desactivado")
+    { bSon Button
+      MoveScaled(21,2,15,4)
+      ToolTip = ("Activa la swap")
+      Text = ("Activar Swap")
+      Picture = Picture["icon:/22/ok"]
+    }
+    { TV TerminalView
+      MoveScaled(1,19,74,10)
+    }
+    { bSoff Button
+      MoveScaled(1,2,18,4)
+      ToolTip = ("Desactiva la swap")
+      Text = ("Desactivar Swap")
+      Picture = Picture["icon:/22/cancel"]
+    }
+    { GridViewFreeMem GridView
+      MoveScaled(1,8,74,9)
+      ToolTip = ("Uso de la memoria actual")
+      Resizable = False
+    }
+    Index = 2
+    Text = ("zRam")
+    { TextLabel1 TextLabel
+      MoveScaled(1,1,74,3)
+      Text = ("Para hacer uso de esta pestaña deber tener instalado<b> \"zRam-tools\" </b>")
+      Alignment = Align.Center
+      Border = Border.Plain
+    }
+    { btIniciarzRam Button
+      MoveScaled(1,5,16,4)
+      ToolTip = ("Iniciar la zRam")
+      Text = ("Iniciar zRam")
+      Picture = Picture["icon:/22/apply"]
+    }
+    { btDesactivarzRam Button
+      MoveScaled(18,5,19,4)
+      ToolTip = ("Desactiva la zRam")
+      Text = ("Desactivar zRam")
+      Picture = Picture["icon:/22/close"]
+    }
+    { TVzRam TerminalView
+      MoveScaled(1,10,74,10)
+    }
+    { TVzRam2 TerminalView
+      MoveScaled(1,21,74,10)
+    }
+    Index = 0
+  }
+  { Label3 Label
+    MoveScaled(1,1,19,3)
+    Text = ("Password Sudo/ Root:")
+  }
+  { txPass TextBox
+    MoveScaled(1,4,77,4)
+    Font = Font["14"]
+    ToolTip = ("Password sudo/root")
+    Password = True
+  }
+  { btnSalir Button
+    MoveScaled(48,51,12,4)
+    ToolTip = ("Salir del programa")
+    Text = ("Salir")
+    Picture = Picture["icon:/22/halt"]
+  }
+  { btnAcerca Button
+    MoveScaled(21,51,15,4)
+    ToolTip = ("Acerca del creador")
+    Text = ("Acerca de") & "..."
+    Picture = Picture["icon:/22/draw-path"]
+  }
+  { btnInfo Button
+    MoveScaled(1,46,44,4)
+    ToolTip = ("Mas información respecto del ajuste de la memoria virtual")
+    Text = ("Info. Respecto al Uso de la Memoria Virtual")
+    Picture = Picture["icon:/22/share"]
+  }
+  { btnInfo2 Button
+    MoveScaled(46,46,32,4)
+    ToolTip = ("Mas información respecto del ajuste de la memoria virtual")
+    Text = ("Info. Acerca del Uso de la zRam")
+    Picture = Picture["icon:/22/share"]
+  }
+}

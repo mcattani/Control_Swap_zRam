@@ -1,0 +1,29 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,124,40)
+  { PictureBox1 PictureBox
+    MoveScaled(-4,1,55,38)
+    Picture = Picture["Logo_Oficial.png"]
+    Stretch = True
+  }
+  { URL URLLabel
+    MoveScaled(47,29,76,4)
+    Font = Font["+5"]
+    ToolTip = ("Click para acceder al blog")
+    Text = ("https://thenerdyapprentice.blogspot.com/")
+    Link = "https://thenerdyapprentice.blogspot.com/"
+  }
+  { btCerrar Button
+    MoveScaled(105,34,17,4)
+    Text = ("Cerrar")
+    Picture = Picture["icon:/24/close"]
+  }
+  { txtAbout TextArea
+    MoveScaled(47,1,76,27)
+    ToolTip = ("Acerca de mí") & "..."
+    Text = ("Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que\nme hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! ")
+    ReadOnly = True
+    Wrap = True
+  }
+}

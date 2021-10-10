@@ -1,0 +1,11 @@
+* Thu Sep 30 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.0.4
+- Corregido bug
+- En algunos sistemas se puede ejectuar el comando "zramctl" sin problema, en otros necesita privilegios root, lo que afecta la salida del comando.
+
+* Wed Sep 29 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.0.2
+- Corregidos errores al mostrar la salida en TVzRAM
+- Muestra "cat /proc/swaps" si "zramctl" no está disponible en el sistema
+
+* Wed Sep 29 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.0.1
+- Lanzamiento inicial
+

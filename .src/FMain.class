@@ -1,0 +1,255 @@
+' Gambas class file
+
+Password As String
+
+
+Public Sub Form_Open()
+FMain.Title = Application.Title & " v." & Application.Version
+Me.Center
+VerSwappiness()
+VerZRam()
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.code = Key.Esc Then Quit
+
+End
+
+Public Sub btAjustar_Click() 'Función que ajusta el valor de la memoria virtual
+Dim Comando As String
+Comando = " | sudo -S sysctl vm.swappiness=" & SbValor.Value
+
+  If txPass.Text = "" Then
+    Message.Warning("Debe ingresar un password!")
+    Return
+    Else
+      Password = txPass.Text
+  Endif
+  
+  TVSwappiness.Text = "Cambiando el valor del uso de la memoria virtual..." & gb.Cr
+  Wait 1
+  
+   Try Shell ("echo " & password & Comando)
+   Print "echo " & Password & Comando
+   If Error Then
+    TVSwappiness.Text = Error.code & gb.CrLf & Error.Text & gb.Cr
+   Else
+     Wait 1
+     TVSwappiness.Text = "Cambio realizado con éxito." & gb.Cr
+ Endif
+
+VerSwappiness()
+
+End
+
+Public Sub bSon_Click() 'Activa la SWAP
+Dim Comando As String
+Comando = " | sudo -S swapon -a"
+
+  If txPass.Text = "" Then
+    Message.Warning("Debe ingresar un password!")
+    Return
+    Else
+      Password = txPass.Text
+  Endif
+    
+  Try tv.Shell("echo " & Password & Comando)
+  If Error Then
+    tv.Print(Error.code & gb.CrLf & Error.Text & gb.CrLf)
+    Else
+      tv.Clear
+      tv.Print("Iniciando Swap...")
+      Wait 2
+      tv.Clear
+       tv.Print("Memoria Swap iniciada." & gb.Cr)
+  Endif
+
+End
+
+Public Sub bSoff_Click() 'Desactiva la SWAP
+Dim Comando As String
+Comando = " | sudo -S swapoff -a"
+
+  If txPass.Text = "" Then
+    Message.Warning("Debe ingresar un password!")
+    Return
+    Else
+      Password = txPass.Text
+  Endif
+  
+  Try tv.Shell("echo " & Password & Comando)
+  If Error Then
+    tv.Print(Error.code & gb.CrLf & Error.Text & gb.CrLf)
+    Else
+      tv.Clear
+      tv.Print("Desactivando Swap...")
+      Wait 2
+      tv.Clear
+       tv.print("Memoria Swap desactivada." & gb.Cr)
+   Endif
+     
+    
+End
+
+Public Sub VerSwappiness() 'Muestra el valor de la "swappiness"
+Dim Comando As String, Salida As String
+Comando = "cat /proc/sys/vm/swappiness"
+
+Shell (Comando) To Salida
+
+Salida = Trim(Salida)
+
+txSwappiness.Text = Salida
+
+SbValor.Value = Salida
+  
+End
+
+Public Sub VerZRam()
+TVzRam.Clear
+TVzRam.Shell("zramctl")
+
+End
+
+Public Sub Timer1_Timer()
+
+SetUpGrid() ' El timer llama constantemente a la función que genera la grilla con los datos de la memoria
+
+End
+
+Public Sub MemLibre() As String ' Ejecutamos el comando free -m
+
+  Dim Comando As String, Salida As String
+
+  Comando = "free -m"
+
+  Shell (Comando) To Salida
+
+  Return Salida
+
+End
+
+
+Public Sub Form_Close()
+
+  Quit
+
+End
+
+Public Sub SetUpGrid() ' Función para setear la grilla con los datos obtenidos de la función MemLibre()
+' Rellenamos el grid con los datos de la memoria disponible
+
+  Dim sMem, sTemp, sHold As String
+  Dim sLine As New String[]
+  Dim siRow, siCol As Short
+
+  With GridViewFreeMem
+    .Columns.count = 7
+    .Rows.Count = 3
+  End With
+
+  sMem = MemLibre()
+
+  For Each sTemp In Split(sMem, "\n")
+    Repeat
+      sHold = sTemp
+      sTemp = Trim(Replace(sTemp, "  ", " "))
+    Until sHold = sTemp
+    sLine.Add(sTemp & "\n")
+  Next
+
+  For siRow = 0 To 2
+    If siRow = 0 Then Inc siCol
+    For Each sTemp In Split(sLine[siRow], " ")
+      GridViewFreeMem[siRow, siCol].text = Trim(sTemp)
+      Inc siCol
+    Next
+    siCol = 0
+  Next
+
+  For siCol = 1 To 6
+    sTemp = GridViewFreeMem[0, siCol].text
+    sTemp = UCase(Left(sTemp, 1)) & Mid(sTemp, 2)
+    GridViewFreeMem[0, siCol].text = sTemp
+  Next
+
+  GridViewFreeMem.Columns.Width = -1
+
+End
+
+Public Sub btnSalir_Click()
+
+  Quit
+
+End
+
+Public Sub btnAcerca_Click()
+
+frmAbout.Show
+
+End
+
+Public Sub btnInfo_Click()
+
+Desktop.Open("https://ubunlog.com/swappiness-como-ajustar-el-uso-de-la-memoria-virtual/")
+
+End
+
+Public Sub btIniciarzRam_Click() 'Inicia la zRAM
+Dim Comando As String
+Comando = " | sudo -S zramswap start"
+
+  If txPass.Text = "" Then
+    Message.Warning("Debe ingresar un password!")
+    Return
+    Else
+      Password = txPass.Text
+  Endif
+    
+  Try TVzRam2.Shell("echo " & Password & Comando)
+  If Error Then
+    tv.Print(Error.code & gb.CrLf & Error.Text & gb.CrLf)
+    Else
+      tv.Clear
+      tv.Print("Activando zRram")
+      Wait 2
+      
+   Endif
+   
+VerZRam()
+     
+ End
+
+Public Sub btDesactivarzRam_Click() 'Desactiva la zRAM
+Dim Comando As String
+Comando = " | sudo -S zramswap stop"
+
+  If txPass.Text = "" Then
+    Message.Warning("Debe ingresar un password!")
+    Return
+    Else
+      Password = txPass.Text
+  Endif
+    
+  Try TVzRam2.Shell("echo " & Password & Comando)
+  If Error Then
+    tv.Print(Error.code & gb.CrLf & Error.Text & gb.CrLf)
+    Else
+      tv.Clear
+      tv.Print("Desactivando zRram")
+      Wait 2
+      
+   Endif
+   
+VerZRam()
+     
+End
+  
+
+Public Sub btnInfo2_Click()
+
+  Desktop.Open("https://www.muylinux.com/2021/01/29/swap-zram-debian-ubuntu/")
+
+End

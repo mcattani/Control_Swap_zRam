@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,80,56)
+  MoveScaled(0,0,80,58)
   Text = ("Control_Swap")
   Icon = Picture["icon.png"]
   Resizable = False
@@ -13,10 +13,10 @@
   { TrayIcon1 #TrayIcon
     #MoveScaled(59,0)
     Visible = True
-    Picture = Picture["icon.png"]
+    Picture = Picture.Load("icon.png")
   }
   { TabStrip1 TabStrip
-    MoveScaled(1,9,77,36)
+    MoveScaled(1,9,77,38)
     Count = 3
     Index = 0
     Text = ("Ajuste del uso de la Memoria Virtual (Swap)")
@@ -45,7 +45,7 @@
       Picture = Picture["icon:/22/play"]
     }
     { TVSwappiness TextArea
-      MoveScaled(1,20,74,3)
+      MoveScaled(1,20,74,10)
       ReadOnly = True
       ScrollBar = Scroll.None
     }
@@ -58,7 +58,7 @@
       Picture = Picture["icon:/22/ok"]
     }
     { TV TerminalView
-      MoveScaled(1,19,74,10)
+      MoveScaled(1,19,74,12)
     }
     { bSoff Button
       MoveScaled(1,2,18,4)
@@ -74,28 +74,28 @@
     Index = 2
     Text = ("zRam")
     { TextLabel1 TextLabel
-      MoveScaled(1,1,74,3)
+      MoveScaled(1,1,75,5)
+      Border = Border.Plain
       Text = ("Para hacer uso de esta pestaña deber tener instalado<b> \"zRam-tools\" </b>")
       Alignment = Align.Center
-      Border = Border.Plain
     }
     { btIniciarzRam Button
-      MoveScaled(1,5,16,4)
+      MoveScaled(1,7,16,4)
       ToolTip = ("Iniciar la zRam")
       Text = ("Iniciar zRam")
       Picture = Picture["icon:/22/apply"]
     }
     { btDesactivarzRam Button
-      MoveScaled(18,5,19,4)
+      MoveScaled(18,7,19,4)
       ToolTip = ("Desactiva la zRam")
       Text = ("Desactivar zRam")
       Picture = Picture["icon:/22/close"]
     }
     { TVzRam TerminalView
-      MoveScaled(1,10,74,10)
+      MoveScaled(1,12,74,10)
     }
     { TVzRam2 TerminalView
-      MoveScaled(1,21,74,10)
+      MoveScaled(1,23,74,9)
     }
     Index = 0
   }
@@ -110,25 +110,25 @@
     Password = True
   }
   { btnSalir Button
-    MoveScaled(48,51,12,4)
+    MoveScaled(48,53,12,4)
     ToolTip = ("Salir del programa")
     Text = ("Salir")
     Picture = Picture["icon:/22/halt"]
   }
   { btnAcerca Button
-    MoveScaled(21,51,15,4)
+    MoveScaled(21,53,15,4)
     ToolTip = ("Acerca del creador")
     Text = ("Acerca de") & "..."
     Picture = Picture["icon:/22/draw-path"]
   }
   { btnInfo Button
-    MoveScaled(1,46,44,4)
+    MoveScaled(1,48,44,4)
     ToolTip = ("Mas información respecto del ajuste de la memoria virtual")
     Text = ("Info. Respecto al Uso de la Memoria Virtual")
     Picture = Picture["icon:/22/share"]
   }
   { btnInfo2 Button
-    MoveScaled(46,46,32,4)
+    MoveScaled(46,48,32,4)
     ToolTip = ("Mas información respecto del ajuste de la memoria virtual")
     Text = ("Info. Acerca del Uso de la zRam")
     Picture = Picture["icon:/22/share"]

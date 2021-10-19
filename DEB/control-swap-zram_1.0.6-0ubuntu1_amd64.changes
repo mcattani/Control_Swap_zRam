@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Tue, 19 Oct 2021 12:00:00 +0000
+Source: control-swap-zram
+Binary: control-swap-zram
+Built-For-Profiles: noudeb
+Architecture: source all
+Version: 1.0.6-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: The Nerdy Apprentice <marianocattani@gmail.com>
+Changed-By: The Nerdy Apprentice <marianocattani@gmail.com>
+Description:
+ control-swap-zram - Pequeña APP que permite:  - Activar/desactivar la memoria SWAP ..
+Changes:
+ control-swap-zram (1.0.6-0ubuntu1) unstable; urgency=low
+ .
+   * Corregidos errores que se mostraban en la nueva versión de Ubuntu 20.10
+Checksums-Sha1:
+ 5d2df908b9a091e9d75dca871aa04aa674be9426 1311 control-swap-zram_1.0.6-0ubuntu1.dsc
+ bddcded30a0b3103ecff1f7b36e0ff4687ef8f61 1638 control-swap-zram_1.0.6-0ubuntu1.diff.gz
+ 6742dc2a13aa604f428d22fe99766ddd36dee017 142290 control-swap-zram_1.0.6-0ubuntu1_all.deb
+ 15eb089951ec5b543b6a4ce4f1ca2da8de78d28c 7295 control-swap-zram_1.0.6-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ a47d196e3102db9440dae24cc1ef0785d4e96dc4f3bbf453eeab50ab09c4f517 1311 control-swap-zram_1.0.6-0ubuntu1.dsc
+ ecc42a4713d20282183e1621496d39fd5c49ff12a69b08b909acca67a4aabc96 1638 control-swap-zram_1.0.6-0ubuntu1.diff.gz
+ 47cae0382459b97a8657ec1c018692e3e5bfc630f6b0a86cddee5102420e8110 142290 control-swap-zram_1.0.6-0ubuntu1_all.deb
+ d69ce0a3ea133b9e01760de9a11b92bca6369bb9efd469c94f85d0f94a8acd48 7295 control-swap-zram_1.0.6-0ubuntu1_amd64.buildinfo
+Files:
+ ed203ed52f0b84e23d4dc46fe48cf981 1311 contrib/utils optional control-swap-zram_1.0.6-0ubuntu1.dsc
+ 9fd596b41bdcb82427d88b23a006d9fe 1638 contrib/utils optional control-swap-zram_1.0.6-0ubuntu1.diff.gz
+ c7b4602140c922f1f9615e2a04c9acf0 142290 contrib/utils optional control-swap-zram_1.0.6-0ubuntu1_all.deb
+ c0d8c2e37b2e17737251ad85f4fa55d3 7295 contrib/utils optional control-swap-zram_1.0.6-0ubuntu1_amd64.buildinfo

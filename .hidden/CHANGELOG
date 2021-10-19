@@ -1,3 +1,6 @@
+* Tue Oct 19 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.0.6
+- Corregidos errores que se mostraban en la nueva versión de Ubuntu 20.10
+
 * Thu Sep 30 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.0.4
 - Corregido bug
 - En algunos sistemas se puede ejectuar el comando "zramctl" sin problema, en otros necesita privilegios root, lo que afecta la salida del comando.
